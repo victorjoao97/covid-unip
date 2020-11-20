@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="covid-unip" />
+		<Option platforms="Windows;" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/covid-unip" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/covid-unip" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="if exist %userprofile%\Desktop\COVID-UNIP.lnk del %userprofile%\Desktop\COVID-UNIP.lnk" />
+					<Add before="if exist %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk del /f %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk del %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk" />
+					<Add after='echo Set oWS = WScript.CreateObject(&quot;WScript.Shell&quot;) &gt; CreateShortcut.vbs' />
+					<Add after='echo sLinkFile = &quot;%userprofile%\Desktop\COVID-UNIP.lnk&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after="echo Set oLink = oWS.CreateShortcut(sLinkFile) &gt;&gt; CreateShortcut.vbs" />
+					<Add after='echo oLink.TargetPath = &quot;%cd%\bin\Release\covid-unip.exe&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.WorkingDirectory = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.Description = &quot;Programa para cadastro de pacientes com Covid UNIP&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.IconLocation = &quot;%cd%\icon.bmp&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after="echo oLink.Save &gt;&gt; CreateShortcut.vbs" />
+					<Add after="cscript CreateShortcut.vbs" />
+					<Add after="del CreateShortcut.vbs" />
+					<Add after='echo Set oWS = WScript.CreateObject(&quot;WScript.Shell&quot;) &gt; CreateShortcut.vbs' />
+					<Add after='echo sLinkFile = &quot;%userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after="echo Set oLink = oWS.CreateShortcut(sLinkFile) &gt;&gt; CreateShortcut.vbs" />
+					<Add after='echo oLink.TargetPath = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.WorkingDirectory = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.Description = &quot;Pasta com os arquivos do programa Covid UNIP&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after='echo oLink.IconLocation = &quot;%SystemRoot%\System32\SHELL32.dll,3&quot; &gt;&gt; CreateShortcut.vbs' />
+					<Add after="echo oLink.Save &gt;&gt; CreateShortcut.vbs" />
+					<Add after="cscript CreateShortcut.vbs" />
+					<Add after="del CreateShortcut.vbs" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="domain/entidades.h" />
+		<Unit filename="domain/interfaces.h" />
+		<Unit filename="header.h" />
+		<Unit filename="infra/adadpter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/comorbidade-paciente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/comorbidades.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/files.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/interfaces.h" />
+		<Unit filename="infra/paciente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/pacientes-risco.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="infra/usuario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentation/comorbidade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentation/interfaces.h" />
+		<Unit filename="presentation/paciente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentation/principal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentation/read-structs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentation/usuario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="repository/comorbidade-paciente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="repository/comorbidade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="repository/interfaces.h" />
+		<Unit filename="repository/paciente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="repository/pacientes-risco.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="repository/usuario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/comorbidade/cadastrar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/comorbidade/deletar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/interfaces.h" />
+		<Unit filename="usecases/login.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/paciente/cadastrar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/usuario/cadastrar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="usecases/usuario/deletar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

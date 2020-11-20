@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+	<Libs Value=""/>
+	<Flags Value=""/>
+	<Target Value="bin/release/covid-unip.exe"/>
+	<CommandLine Value="-std=c99"/>
+	<CompilerOptions Value="-Wall -s -O2"/>
+	<DeleteObjectsBefore Value="Yes"/>
+	<DeleteObjectsAfter Value="Yes"/>
+	<DeleteMakefileAfter Value="No"/>
+	<DeleteResourcesAfter Value="Yes"/>
+	<EnableTheme Value="No"/>
+	<RequiresAdmin Value="No"/>
+	<CompilerType Value="C"/>
+	<AppType Value="CONSOLE"/>
+	<Files>
+		<File Name="main.c"/>
+		<File Name="header.h"/>
+		<Folder Name="infra">
+			<File Name="adadpter.c"/>
+			<File Name="usuario.c"/>
+			<File Name="paciente.c"/>
+			<File Name="files.c"/>
+			<File Name="interfaces.h"/>
+			<File Name="comorbidades.c"/>
+			<File Name="comorbidade-paciente.c"/>
+			<File Name="pacientes-risco.c"/>
+		</Folder>
+		<Folder Name="repository">
+			<File Name="usuario.c"/>
+			<File Name="paciente.c"/>
+			<File Name="interfaces.h"/>
+			<File Name="comorbidade.c"/>
+			<File Name="comorbidade-paciente.c"/>
+			<File Name="pacientes-risco.c"/>
+		</Folder>
+		<Folder Name="usecases">
+			<File Name="login.c"/>
+			<Folder Name="usuario">
+				<File Name="cadastrar.c"/>
+				<File Name="deletar.c"/>
+			</Folder>
+			<Folder Name="paciente">
+				<File Name="cadastrar.c"/>
+			</Folder>
+			<File Name="interfaces.h"/>
+			<Folder Name="comorbidade">
+				<File Name="cadastrar.c"/>
+				<File Name="deletar.c"/>
+			</Folder>
+		</Folder>
+		<Folder Name="presentation">
+			<File Name="principal.c"/>
+			<File Name="usuario.c"/>
+			<File Name="paciente.c"/>
+			<File Name="read-structs.c"/>
+			<File Name="comorbidade.c"/>
+			<File Name="interfaces.h"/>
+		</Folder>
+		<File Name="utils.c"/>
+		<Folder Name="domain">
+			<File Name="entidades.h"/>
+			<File Name="interfaces.h"/>
+		</Folder>
+		<Folder Name="libs">
+			<File Name="colors.h"/>
+		</Folder>
+	</Files>
+</Project>

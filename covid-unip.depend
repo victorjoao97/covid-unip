@@ -1,0 +1,172 @@
+# depslib dependency file v1.0
+1605569962 source:c:\users\victo\desktop\covid-unip\main.c
+	<locale.h>
+	"header.h"
+
+1605571668 c:\users\victo\desktop\covid-unip\header.h
+	<stdbool.h>
+	<stdlib.h>
+	<stdio.h>
+	"libs/colors.h"
+	"domain/entidades.h"
+	"infra/interfaces.h"
+	"repository/interfaces.h"
+	"presentation/interfaces.h"
+	"usecases/interfaces.h"
+	"domain/interfaces.h"
+
+1605045795 c:\users\victo\desktop\covid-unip\libs\colors.h
+
+1605377945 c:\users\victo\desktop\covid-unip\domain\entidades.h
+	"../header.h"
+
+1605384359 c:\users\victo\desktop\covid-unip\infra\interfaces.h
+
+1605384309 c:\users\victo\desktop\covid-unip\repository\interfaces.h
+
+1605453051 c:\users\victo\desktop\covid-unip\presentation\interfaces.h
+
+1605384186 c:\users\victo\desktop\covid-unip\usecases\interfaces.h
+
+1605384227 c:\users\victo\desktop\covid-unip\domain\interfaces.h
+	"../header.h"
+
+1605378001 source:c:\users\victo\desktop\covid-unip\infra\adadpter.c
+	<string.h>
+	"../header.h"
+
+1605045795 source:c:\users\victo\desktop\covid-unip\infra\comorbidade-paciente.c
+	<stdio.h>
+	"../header.h"
+
+1605222757 source:c:\users\victo\desktop\covid-unip\infra\comorbidades.c
+	<stdio.h>
+	<string.h>
+	"../header.h"
+
+1605383561 source:c:\users\victo\desktop\covid-unip\infra\files.c
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<unistd.h>
+	"../header.h"
+
+1605054182 source:c:\users\victo\desktop\covid-unip\infra\paciente.c
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"../header.h"
+
+1605045795 source:c:\users\victo\desktop\covid-unip\infra\pacientes-risco.c
+	<stdio.h>
+	"../header.h"
+
+1605055277 source:c:\users\victo\desktop\covid-unip\infra\usuario.c
+	<stdio.h>
+	<string.h>
+	"../header.h"
+
+1605057558 source:c:\users\victo\desktop\covid-unip\presentation\comorbidade.c
+	<stdio.h>
+	"../header.h"
+
+1605045795 source:c:\users\victo\desktop\covid-unip\presentation\paciente.c
+	<stdio.h>
+	"../header.h"
+
+1605377787 source:c:\users\victo\desktop\covid-unip\presentation\principal.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	<stdarg.h>
+	"../header.h"
+
+1605573651 source:c:\users\victo\desktop\covid-unip\presentation\read-structs.c
+	<stdio.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	"../header.h"
+
+1605048713 source:c:\users\victo\desktop\covid-unip\presentation\usuario.c
+	<stdio.h>
+	"../header.h"
+
+1605045795 source:c:\users\victo\desktop\covid-unip\repository\comorbidade-paciente.c
+	"../header.h"
+
+1605058002 source:c:\users\victo\desktop\covid-unip\repository\comorbidade.c
+	<stdio.h>
+	<string.h>
+	"../header.h"
+
+1605378358 source:c:\users\victo\desktop\covid-unip\repository\paciente.c
+	<stdio.h>
+	<string.h>
+	"../header.h"
+
+1605216553 source:c:\users\victo\desktop\covid-unip\repository\pacientes-risco.c
+	"../header.h"
+
+1605057756 source:c:\users\victo\desktop\covid-unip\repository\usuario.c
+	<stdio.h>
+	<string.h>
+	"../header.h"
+
+1605453104 source:c:\users\victo\desktop\covid-unip\usecases\comorbidade\cadastrar.c
+	<string.h>
+	"../../header.h"
+
+1605057543 source:c:\users\victo\desktop\covid-unip\usecases\comorbidade\deletar.c
+	<stdio.h>
+	<conio.h>
+	<string.h>
+	"../../header.h"
+
+1605057672 source:c:\users\victo\desktop\covid-unip\usecases\login.c
+	<stdbool.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	"../header.h"
+
+1605571792 source:c:\users\victo\desktop\covid-unip\usecases\paciente\cadastrar.c
+	<string.h>
+	"../../header.h"
+
+1605453181 source:c:\users\victo\desktop\covid-unip\usecases\usuario\cadastrar.c
+	<string.h>
+	"../../header.h"
+
+1605056944 source:c:\users\victo\desktop\covid-unip\usecases\usuario\deletar.c
+	<stdio.h>
+	<conio.h>
+	"../../header.h"
+
+1605571634 source:c:\users\victo\desktop\covid-unip\utils.c
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	<unistd.h>
+	<ctype.h>
+	<time.h>
+	<stdbool.h>
+	"header.h"
+	"libs/re.c"
+
+1605453266 c:\users\victo\desktop\covid-unip\libs\re.h
+
+1605398336 c:\users\victo\desktop\covid-unip\libs\regex-2.7-lib\include\regex.h
+	<sys/types.h>
+
+1605443306 c:\users\victo\desktop\covid-unip\libs\regex.h
+	<sys/types.h>
+
+1605453320 c:\users\victo\desktop\covid-unip\libs\re.c
+	"re.h"
+	<stdio.h>
+

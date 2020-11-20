@@ -1,0 +1,6 @@
+.vscode/
+bin/
+obj/
+db/*
+!db/comorbidades.txt
+bin/Debug/covid-unip.exe
