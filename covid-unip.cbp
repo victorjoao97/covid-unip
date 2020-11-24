@@ -41,6 +41,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lncurses" />
 				</Linker>
 			</Target>
 		</Build>
