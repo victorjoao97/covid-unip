@@ -69,7 +69,7 @@ jobs:
           submodules: recursive
     - name: Running Make (linux)
       run: |
-        make -D UNIX -f ./Makefile-linux
+        make -UNIX -f ./Makefile-linux
     - name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
