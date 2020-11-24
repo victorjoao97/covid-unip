@@ -1,11 +1,7 @@
-#ifdef defined(__unix__) || defined(__linux__) || defined(unix) || defined(__unix)
-
+#if defined(UNIX)
     #include <curses.h>
-
-#elif defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64)
-
+#else
 	#include <conio.h>
-
 #endif
 #include <stdio.h>
 #include "../../header.h"
