@@ -18,4 +18,39 @@ jobs:
     - name: Running Make (windows)
       run: |
         cd ${{ github.workspace }}
-        ./INSTALADOR.exe
+        cmd /c if not exist bin\\Debug md bin\\Debug
+        cmd /c if not exist obj\\Debug md obj\\Debug
+        cmd /c if not exist obj\\Debug\\usecases\\usuario md obj\\Debug\\usecases\\usuario
+        cmd /c if not exist obj\\Debug\\usecases\\paciente md obj\\Debug\\usecases\\paciente
+        cmd /c if not exist obj\\Debug\\usecases md obj\\Debug\\usecases
+        cmd /c if not exist obj\\Debug\\usecases\\comorbidade md obj\\Debug\\usecases\\comorbidade
+        cmd /c if not exist obj\\Debug\\repository md obj\\Debug\\repository
+        cmd /c if not exist obj\\Debug\\presentation md obj\\Debug\\presentation
+        cmd /c if not exist obj\\Debug\\infra md obj\\Debug\\infra
+        gcc.exe -Wall -g  -c utils.c -o obj\\Debug\\utils.o
+        gcc.exe -Wall -g  -c usecases\\usuario\\deletar.c -o obj\\Debug\\usecases\\usuario\\deletar.o
+        gcc.exe -Wall -g  -c usecases\\usuario\\cadastrar.c -o obj\\Debug\\usecases\\usuario\\cadastrar.o
+        gcc.exe -Wall -g  -c usecases\\paciente\\cadastrar.c -o obj\\Debug\\usecases\\paciente\\cadastrar.o
+        gcc.exe -Wall -g  -c usecases\\login.c -o obj\\Debug\\usecases\\login.o
+        gcc.exe -Wall -g  -c usecases\\comorbidade\\deletar.c -o obj\\Debug\\usecases\\comorbidade\\deletar.o
+        gcc.exe -Wall -g  -c usecases\\comorbidade\\cadastrar.c -o obj\\Debug\\usecases\\comorbidade\\cadastrar.o
+        gcc.exe -Wall -g  -c repository\\usuario.c -o obj\\Debug\\repository\\usuario.o
+        gcc.exe -Wall -g  -c repository\\pacientes-risco.c -o obj\\Debug\\repository\\pacientes-risco.o
+        gcc.exe -Wall -g  -c repository\\paciente.c -o obj\\Debug\\repository\\paciente.o
+        gcc.exe -Wall -g  -c repository\\comorbidade.c -o obj\\Debug\\repository\\comorbidade.o
+        gcc.exe -Wall -g  -c repository\\comorbidade-paciente.c -o obj\\Debug\\repository\\comorbidade-paciente.o
+        gcc.exe -Wall -g  -c presentation\\usuario.c -o obj\\Debug\\presentation\\usuario.o
+        gcc.exe -Wall -g  -c presentation\\read-structs.c -o obj\\Debug\\presentation\\read-structs.o
+        gcc.exe -Wall -g  -c presentation\\principal.c -o obj\\Debug\\presentation\\principal.o
+        gcc.exe -Wall -g  -c presentation\\paciente.c -o obj\\Debug\\presentation\\paciente.o
+        gcc.exe -Wall -g  -c presentation\\comorbidade.c -o obj\\Debug\\presentation\\comorbidade.o
+        gcc.exe -Wall -g  -c main.c -o obj\\Debug\\main.o
+        gcc.exe -Wall -g  -c infra\\usuario.c -o obj\\Debug\\infra\\usuario.o
+        gcc.exe -Wall -g  -c infra\\pacientes-risco.c -o obj\\Debug\\infra\\pacientes-risco.o
+        gcc.exe -Wall -g  -c infra\\paciente.c -o obj\\Debug\\infra\\paciente.o
+        gcc.exe -Wall -g  -c infra\\files.c -o obj\\Debug\\infra\\files.o
+        gcc.exe -Wall -g  -c infra\\comorbidades.c -o obj\\Debug\\infra\\comorbidades.o
+        gcc.exe -Wall -g  -c infra\\comorbidade-paciente.c -o obj\\Debug\\infra\\comorbidade-paciente.o
+        gcc.exe -Wall -g  -c infra\\adadpter.c -o obj\\Debug\\infra\\adadpter.o
+        gcc.exe  -o bin\\Debug\\covid-unip.exe obj\\Debug\\utils.o obj\\Debug\\usecases\\usuario\\deletar.o obj\\Debug\\usecases\\usuario\\cadastrar.o obj\\Debug\\usecases\\paciente\\cadastrar.o obj\\Debug\\usecases\\login.o obj\\Debug\\usecases\\comorbidade\\deletar.o obj\\Debug\\usecases\\comorbidade\\cadastrar.o obj\\Debug\\repository\\usuario.o obj\\Debug\\repository\\pacientes-risco.o obj\\Debug\\repository\\paciente.o obj\\Debug\\repository\\comorbidade.o obj\\Debug\\repository\\comorbidade-paciente.o obj\\Debug\\presentation\\usuario.o obj\\Debug\\presentation\\read-structs.o obj\\Debug\\presentation\\principal.o obj\\Debug\\presentation\\paciente.o obj\\Debug\\presentation\\comorbidade.o obj\\Debug\\main.o obj\\Debug\\infra\\usuario.o obj\\Debug\\infra\\pacientes-risco.o obj\\Debug\\infra\\paciente.o obj\\Debug\\infra\\files.o obj\\Debug\\infra\\comorbidades.o obj\\Debug\\infra\\comorbidade-paciente.o obj\\Debug\\infra\\adadpter.o
+        
