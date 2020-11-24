@@ -1,6 +1,14 @@
+#ifdef __unix__
+
+    #include <curses.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+
+	#include <conio.h>
+
+#endif
 #include <stdio.h>
 #include <string.h>
-#include <conio.h>
 #include <time.h>
 #include "../header.h"
 
@@ -19,13 +27,13 @@ inicio:
 
 	if (strlen(textoSaida) >= limiteCaracteres)
 	{
-		mensagemErroSemLimpar("Excedeu o tamanho máximo de %d caracteres\n", limiteCaracteres-1);
+		mensagemErroSemLimpar("Excedeu o tamanho mï¿½ximo de %d caracteres\n", limiteCaracteres-1);
 		goto inicio;
 	}
 
 	if (validaPorRegex("^[\\w ]*$", textoSaida) != strlen(textoSaida))
 	{
-		mensagemErroSemLimpar("Caracteres inválidos\n");
+		mensagemErroSemLimpar("Caracteres invï¿½lidos\n");
 		goto inicio;
 	}
 }
@@ -52,7 +60,7 @@ void leituraEndereco(char *mensagem, struct Endereco* endereco)
 	}
 
 	inicioNumero: ;
-	leituraChar("Número: ", endereco->numero, sizeof(endereco->numero));
+	leituraChar("Nï¿½mero: ", endereco->numero, sizeof(endereco->numero));
 	if (validaPorRegex("^[\\w ]*$", endereco->numero) < 1)
 	{
 		mensagemErroSemLimpar("Minimo de 1 caracteres\n");
@@ -103,15 +111,15 @@ inicioDia: ;
 	data->dia = leituraInt("Dia: ");
 	if (data->dia < 1 || data->dia > 31)
 	{
-		mensagemErroSemLimpar("Dia inválido\n");
+		mensagemErroSemLimpar("Dia invï¿½lido\n");
 		goto inicioDia;
 	}
 
 inicioMes: ;
-	data->mes = leituraInt("Mês: ");
+	data->mes = leituraInt("Mï¿½s: ");
 	if (data->mes < 1 || data->mes > 12)
 	{
-		mensagemErroSemLimpar("Mês inválido\n");
+		mensagemErroSemLimpar("Mï¿½s invï¿½lido\n");
 		goto inicioMes;
 	}
 
@@ -119,7 +127,7 @@ inicioAno: ;
 	data->ano = leituraInt("Ano: ");
 	if (data->ano < 1800 || data->ano > (tm.tm_year + 1900))
 	{
-		mensagemErroSemLimpar("Ano inválido\n");
+		mensagemErroSemLimpar("Ano invï¿½lido\n");
 		goto inicioAno;
 	}
 }

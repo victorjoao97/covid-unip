@@ -1,5 +1,13 @@
+#ifdef __unix__
+
+    #include <curses.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+
+	#include <conio.h>
+
+#endif
 #include <stdio.h>
-#include <conio.h>
 #include "../../header.h"
 
 extern struct Usuario *todosUsuarios;
@@ -14,7 +22,7 @@ void deletarUsuario()
 	
 	if (totalUsuarios == inicioUsuario)
 	{
-		mensagemErro("Nenhum usuário encontrado\n");
+		mensagemErro("Nenhum usuï¿½rio encontrado\n");
 		return;
 	}
 	
@@ -26,16 +34,16 @@ void deletarUsuario()
 		itensParaSelecionar[contadorPulaAdmin-inicioUsuario].id = todosUsuarios[contadorPulaAdmin].id;
 		itensParaSelecionar[contadorPulaAdmin-inicioUsuario].text = todosUsuarios[contadorPulaAdmin].nome;
 	}
-	usuarioSelecionado = selectWithArrows(&itensParaSelecionar, "DELETAR USUÁRIO", "um usuário", totalUsuarios - inicioUsuario);
+	usuarioSelecionado = selectWithArrows(&itensParaSelecionar, "DELETAR USUï¿½RIO", "um usuï¿½rio", totalUsuarios - inicioUsuario);
 	if (usuarioSelecionado == -1)
 	{
-		mensagemAviso("Nenhum usuário selecionado\n");
+		mensagemAviso("Nenhum usuï¿½rio selecionado\n");
 		return;
 	}
 	else
 	{
 		deleteUsuario(usuarioSelecionado+inicioUsuario);
-		mensagemSucesso("Usuário excluido com sucesso\n");
+		mensagemSucesso("Usuï¿½rio excluido com sucesso\n");
 	}
 	free(itensParaSelecionar);
 }

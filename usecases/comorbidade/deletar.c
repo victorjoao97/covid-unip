@@ -1,5 +1,13 @@
+#ifdef __unix__
+
+    #include <curses.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+
+	#include <conio.h>
+
+#endif
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 #include "../../header.h"
 

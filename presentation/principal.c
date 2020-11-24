@@ -1,5 +1,14 @@
+#ifdef __unix__
+
+    #include <curses.h>
+
+#elif defined(_WIN32) || defined(WIN32)
+
+	#include <conio.h>
+
+#endif
+
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 #include <stdarg.h>
 #include "../header.h"
@@ -12,7 +21,7 @@ void menuPrincipal()
 inicio:
 	limpaTela();
 	headerMenu("MENU");
-	printf("1 - Usuários \n2 - Pacientes\n0 - SAIR\n");
+	printf("1 - Usuï¿½rios \n2 - Pacientes\n0 - SAIR\n");
 	scanf("%d", &opcao);
 	switch (opcao)
 	{
@@ -103,7 +112,7 @@ void headerMenu(char *mensagem)
 	limpaTela();
 	if (usuarioLogado.id != -1)
 	{
-		printf("Usuário logado [ID: %d, Nome: %s]\n", usuarioLogado.id, usuarioLogado.nome);
+		printf("Usuï¿½rio logado [ID: %d, Nome: %s]\n", usuarioLogado.id, usuarioLogado.nome);
 	}
 	background(BLUE);
 	foreground(WHITE);
