@@ -1,8 +1,8 @@
-#ifdef __unix__
+#ifdef defined(__unix__) || defined(__linux__) || defined(unix) || defined(__unix)
 
     #include <curses.h>
 
-#elif defined(_WIN32) || defined(WIN32)
+#elif defined(_WIN32) || defined(WIN32) || defined(_WIN64) || defined(WIN64)
 
 	#include <conio.h>
 
