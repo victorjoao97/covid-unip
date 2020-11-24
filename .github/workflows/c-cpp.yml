@@ -59,3 +59,20 @@ jobs:
         name: Binary-exe
         path: |
           bin/Debug/covid-unip.exe
+  Linux:
+    name: build-linux
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+          submodules: recursive
+    - name: Running Make (linux)
+      run: |
+        make -f ./Makefile-linux
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Binary-unix
+        path: |
+          bin/Debug/covid-unip
