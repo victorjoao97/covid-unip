@@ -1,4 +1,4 @@
-# covid-unip
+# Covid Unip
 
 ## Para instalar basta abrir o INSTALADOR.exe
 Será criado dois atalhos na área de trabalho.
