@@ -32,7 +32,7 @@ bool criaArquivoSeNaoExiste(char *nomeArquivo, void callback(FILE*))
 		mensagemErro(strcat("Erro ao criar o arquivo: ", nomeArquivo));
 		return false;
 	}
-	mensagemSucesso("Arquivo %s não existia, e foi criado com sucesso\n", nomeArquivo);
+	mensagemSucesso("Arquivo %s nï¿½o existia, e foi criado com sucesso\n", nomeArquivo);
 	(*callback)(arquivo);
 	fclose(arquivo);
 	return true;
@@ -96,7 +96,11 @@ void criarDiretorio(char *diretorio)
 {
 	struct stat st = {0};
 	if (stat(diretorio, &st) == -1) {
-	    mkdir(diretorio);
+		#ifdef defined(UNIX)
+			mkdir(diretorio, 0700);
+		#else
+	    	mkdir(diretorio);
+		#endif
 	}
 }
 

@@ -19,7 +19,11 @@ void pausaParaContinuar()
 
 void limpaTela()
 {
-    system("cls");
+    #if defined(UNIX)
+        system("clear");
+    #else
+        system("cls");
+    #endif
 }
 
 void removeEndString(char *string)

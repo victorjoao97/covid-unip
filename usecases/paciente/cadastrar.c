@@ -36,16 +36,16 @@ void cadastrarPaciente()
 
 	inicioEmail: ;
 	printf("Digite o email do paciente: ");
-	gets(paciente.email);
+	fgets(paciente.email, sizeof(paciente.email), stdin);
 	if (validaPorRegex("^[\\w\\.]+\\@[\\w\\.]+\\.[\\w\\.]+$", paciente.email) != strlen(paciente.email))
 	{
-		mensagemErroSemLimpar("Digite um email válido\n");
+		mensagemErroSemLimpar("Digite um email vï¿½lido\n");
 		goto inicioEmail;
 	}
 
-	leituraEndereco("---Preencha os dados de endereço do paciente---\n", &paciente.endereco);
+	leituraEndereco("---Preencha os dados de endereï¿½o do paciente---\n", &paciente.endereco);
 	leituraData("---Preencha a data de nascimento do paciente---\n", &paciente.data_nascimento);
-	leituraData("---Preencha a data de diagnóstico do paciente---\n", &paciente.data_diagnostico);
+	leituraData("---Preencha a data de diagnï¿½stico do paciente---\n", &paciente.data_diagnostico);
 
 	adicionarPaciente(&paciente);
 	leituraChar("Digite as comorbidades se houver: ", paciente.comorbidades, sizeof(paciente.comorbidades));
@@ -61,8 +61,8 @@ void verificaESalvaGrupoRisco(struct Paciente* paciente)
 	if (paciente->idade >= IDADE_GRUPO_RISCO && strlen(paciente->comorbidades) > 0)
 	{
 		adicionarArquivoPacientesRisco(paciente);
-		mensagemAviso("Paciente tem comorbidades e está no grupo de risco\nAssim foi salvo no arquivo %s\n", ARQUIVO_PACIENTES_RISCO);
+		mensagemAviso("Paciente tem comorbidades e estï¿½ no grupo de risco\nAssim foi salvo no arquivo %s\n", ARQUIVO_PACIENTES_RISCO);
 	} else if (paciente->idade >= IDADE_GRUPO_RISCO) {
-		mensagemAviso("O paciente não tem comorbidade, mas está no grupo de risco\n");
+		mensagemAviso("O paciente nï¿½o tem comorbidade, mas estï¿½ no grupo de risco\n");
 	}
 }

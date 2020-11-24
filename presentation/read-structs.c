@@ -18,7 +18,7 @@ void leituraChar(char *mensagem, char *textoSaida, int limiteCaracteres)
 inicio:
 	printf(mensagem);
 	fflush(stdin);
-	gets(textoSaida);
+	fgets(textoSaida, sizeof(textoSaida), stdin);
 	textoSaida = trim(textoSaida);
 
 	if (strlen(textoSaida) >= limiteCaracteres)
