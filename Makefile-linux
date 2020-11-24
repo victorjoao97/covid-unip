@@ -40,13 +40,26 @@ OBJDIR_RELEASE = obj/Release
 DEP_RELEASE = 
 OUT_RELEASE = bin/Release/covid-unip
 
+INC_UNIX = $(INC)
+CFLAGS_UNIX = $(CFLAGS) -O2 -DUNIX
+RESINC_UNIX = $(RESINC)
+RCFLAGS_UNIX = $(RCFLAGS)
+LIBDIR_UNIX = $(LIBDIR)
+LIB_UNIX = $(LIB)
+LDFLAGS_UNIX = $(LDFLAGS) -s
+OBJDIR_UNIX = obj/Release
+DEP_UNIX = 
+OUT_UNIX = bin/Release/covid-unip
+
 OBJ_DEBUG = $(OBJDIR_DEBUG)/utils.o $(OBJDIR_DEBUG)/usecases/usuario/deletar.o $(OBJDIR_DEBUG)/usecases/usuario/cadastrar.o $(OBJDIR_DEBUG)/usecases/paciente/cadastrar.o $(OBJDIR_DEBUG)/usecases/login.o $(OBJDIR_DEBUG)/usecases/comorbidade/deletar.o $(OBJDIR_DEBUG)/usecases/comorbidade/cadastrar.o $(OBJDIR_DEBUG)/repository/usuario.o $(OBJDIR_DEBUG)/repository/pacientes-risco.o $(OBJDIR_DEBUG)/repository/paciente.o $(OBJDIR_DEBUG)/repository/comorbidade.o $(OBJDIR_DEBUG)/repository/comorbidade-paciente.o $(OBJDIR_DEBUG)/presentation/usuario.o $(OBJDIR_DEBUG)/presentation/read-structs.o $(OBJDIR_DEBUG)/presentation/principal.o $(OBJDIR_DEBUG)/presentation/paciente.o $(OBJDIR_DEBUG)/presentation/comorbidade.o $(OBJDIR_DEBUG)/main.o $(OBJDIR_DEBUG)/infra/usuario.o $(OBJDIR_DEBUG)/infra/pacientes-risco.o $(OBJDIR_DEBUG)/infra/paciente.o $(OBJDIR_DEBUG)/infra/files.o $(OBJDIR_DEBUG)/infra/comorbidades.o $(OBJDIR_DEBUG)/infra/comorbidade-paciente.o $(OBJDIR_DEBUG)/infra/adadpter.o
 
 OBJ_RELEASE = $(OBJDIR_RELEASE)/utils.o $(OBJDIR_RELEASE)/usecases/usuario/deletar.o $(OBJDIR_RELEASE)/usecases/usuario/cadastrar.o $(OBJDIR_RELEASE)/usecases/paciente/cadastrar.o $(OBJDIR_RELEASE)/usecases/login.o $(OBJDIR_RELEASE)/usecases/comorbidade/deletar.o $(OBJDIR_RELEASE)/usecases/comorbidade/cadastrar.o $(OBJDIR_RELEASE)/repository/usuario.o $(OBJDIR_RELEASE)/repository/pacientes-risco.o $(OBJDIR_RELEASE)/repository/paciente.o $(OBJDIR_RELEASE)/repository/comorbidade.o $(OBJDIR_RELEASE)/repository/comorbidade-paciente.o $(OBJDIR_RELEASE)/presentation/usuario.o $(OBJDIR_RELEASE)/presentation/read-structs.o $(OBJDIR_RELEASE)/presentation/principal.o $(OBJDIR_RELEASE)/presentation/paciente.o $(OBJDIR_RELEASE)/presentation/comorbidade.o $(OBJDIR_RELEASE)/main.o $(OBJDIR_RELEASE)/infra/usuario.o $(OBJDIR_RELEASE)/infra/pacientes-risco.o $(OBJDIR_RELEASE)/infra/paciente.o $(OBJDIR_RELEASE)/infra/files.o $(OBJDIR_RELEASE)/infra/comorbidades.o $(OBJDIR_RELEASE)/infra/comorbidade-paciente.o $(OBJDIR_RELEASE)/infra/adadpter.o
 
-all: debug release
+OBJ_UNIX = $(OBJDIR_UNIX)/utils.o $(OBJDIR_UNIX)/usecases/usuario/deletar.o $(OBJDIR_UNIX)/usecases/usuario/cadastrar.o $(OBJDIR_UNIX)/usecases/paciente/cadastrar.o $(OBJDIR_UNIX)/usecases/login.o $(OBJDIR_UNIX)/usecases/comorbidade/deletar.o $(OBJDIR_UNIX)/usecases/comorbidade/cadastrar.o $(OBJDIR_UNIX)/repository/usuario.o $(OBJDIR_UNIX)/repository/pacientes-risco.o $(OBJDIR_UNIX)/repository/paciente.o $(OBJDIR_UNIX)/repository/comorbidade.o $(OBJDIR_UNIX)/repository/comorbidade-paciente.o $(OBJDIR_UNIX)/presentation/usuario.o $(OBJDIR_UNIX)/presentation/read-structs.o $(OBJDIR_UNIX)/presentation/principal.o $(OBJDIR_UNIX)/presentation/paciente.o $(OBJDIR_UNIX)/presentation/comorbidade.o $(OBJDIR_UNIX)/main.o $(OBJDIR_UNIX)/infra/usuario.o $(OBJDIR_UNIX)/infra/pacientes-risco.o $(OBJDIR_UNIX)/infra/paciente.o $(OBJDIR_UNIX)/infra/files.o $(OBJDIR_UNIX)/infra/comorbidades.o $(OBJDIR_UNIX)/infra/comorbidade-paciente.o $(OBJDIR_UNIX)/infra/adadpter.o
 
-clean: clean_debug clean_release
+all: debug release unix
+
+clean: clean_debug clean_release clean_unix
 
 before_debug: 
 	test -d bin/Debug || mkdir -p bin/Debug
@@ -258,5 +271,110 @@ clean_release:
 	rm -rf $(OBJDIR_RELEASE)/presentation
 	rm -rf $(OBJDIR_RELEASE)/infra
 
-.PHONY: before_debug after_debug clean_debug before_release after_release clean_release
+before_unix: 
+	test -d bin/Release || mkdir -p bin/Release
+	test -d $(OBJDIR_UNIX) || mkdir -p $(OBJDIR_UNIX)
+	test -d $(OBJDIR_UNIX)/usecases/usuario || mkdir -p $(OBJDIR_UNIX)/usecases/usuario
+	test -d $(OBJDIR_UNIX)/usecases/paciente || mkdir -p $(OBJDIR_UNIX)/usecases/paciente
+	test -d $(OBJDIR_UNIX)/usecases || mkdir -p $(OBJDIR_UNIX)/usecases
+	test -d $(OBJDIR_UNIX)/usecases/comorbidade || mkdir -p $(OBJDIR_UNIX)/usecases/comorbidade
+	test -d $(OBJDIR_UNIX)/repository || mkdir -p $(OBJDIR_UNIX)/repository
+	test -d $(OBJDIR_UNIX)/presentation || mkdir -p $(OBJDIR_UNIX)/presentation
+	test -d $(OBJDIR_UNIX)/infra || mkdir -p $(OBJDIR_UNIX)/infra
+
+after_unix: 
+
+unix: before_unix out_unix after_unix
+
+out_unix: before_unix $(OBJ_UNIX) $(DEP_UNIX)
+	$(LD) $(LIBDIR_UNIX) -o $(OUT_UNIX) $(OBJ_UNIX)  $(LDFLAGS_UNIX) $(LIB_UNIX)
+
+$(OBJDIR_UNIX)/utils.o: utils.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c utils.c -o $(OBJDIR_UNIX)/utils.o
+
+$(OBJDIR_UNIX)/usecases/usuario/deletar.o: usecases/usuario/deletar.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/usuario/deletar.c -o $(OBJDIR_UNIX)/usecases/usuario/deletar.o
+
+$(OBJDIR_UNIX)/usecases/usuario/cadastrar.o: usecases/usuario/cadastrar.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/usuario/cadastrar.c -o $(OBJDIR_UNIX)/usecases/usuario/cadastrar.o
+
+$(OBJDIR_UNIX)/usecases/paciente/cadastrar.o: usecases/paciente/cadastrar.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/paciente/cadastrar.c -o $(OBJDIR_UNIX)/usecases/paciente/cadastrar.o
+
+$(OBJDIR_UNIX)/usecases/login.o: usecases/login.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/login.c -o $(OBJDIR_UNIX)/usecases/login.o
+
+$(OBJDIR_UNIX)/usecases/comorbidade/deletar.o: usecases/comorbidade/deletar.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/comorbidade/deletar.c -o $(OBJDIR_UNIX)/usecases/comorbidade/deletar.o
+
+$(OBJDIR_UNIX)/usecases/comorbidade/cadastrar.o: usecases/comorbidade/cadastrar.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c usecases/comorbidade/cadastrar.c -o $(OBJDIR_UNIX)/usecases/comorbidade/cadastrar.o
+
+$(OBJDIR_UNIX)/repository/usuario.o: repository/usuario.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c repository/usuario.c -o $(OBJDIR_UNIX)/repository/usuario.o
+
+$(OBJDIR_UNIX)/repository/pacientes-risco.o: repository/pacientes-risco.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c repository/pacientes-risco.c -o $(OBJDIR_UNIX)/repository/pacientes-risco.o
+
+$(OBJDIR_UNIX)/repository/paciente.o: repository/paciente.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c repository/paciente.c -o $(OBJDIR_UNIX)/repository/paciente.o
+
+$(OBJDIR_UNIX)/repository/comorbidade.o: repository/comorbidade.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c repository/comorbidade.c -o $(OBJDIR_UNIX)/repository/comorbidade.o
+
+$(OBJDIR_UNIX)/repository/comorbidade-paciente.o: repository/comorbidade-paciente.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c repository/comorbidade-paciente.c -o $(OBJDIR_UNIX)/repository/comorbidade-paciente.o
+
+$(OBJDIR_UNIX)/presentation/usuario.o: presentation/usuario.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c presentation/usuario.c -o $(OBJDIR_UNIX)/presentation/usuario.o
+
+$(OBJDIR_UNIX)/presentation/read-structs.o: presentation/read-structs.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c presentation/read-structs.c -o $(OBJDIR_UNIX)/presentation/read-structs.o
+
+$(OBJDIR_UNIX)/presentation/principal.o: presentation/principal.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c presentation/principal.c -o $(OBJDIR_UNIX)/presentation/principal.o
+
+$(OBJDIR_UNIX)/presentation/paciente.o: presentation/paciente.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c presentation/paciente.c -o $(OBJDIR_UNIX)/presentation/paciente.o
+
+$(OBJDIR_UNIX)/presentation/comorbidade.o: presentation/comorbidade.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c presentation/comorbidade.c -o $(OBJDIR_UNIX)/presentation/comorbidade.o
+
+$(OBJDIR_UNIX)/main.o: main.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c main.c -o $(OBJDIR_UNIX)/main.o
+
+$(OBJDIR_UNIX)/infra/usuario.o: infra/usuario.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/usuario.c -o $(OBJDIR_UNIX)/infra/usuario.o
+
+$(OBJDIR_UNIX)/infra/pacientes-risco.o: infra/pacientes-risco.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/pacientes-risco.c -o $(OBJDIR_UNIX)/infra/pacientes-risco.o
+
+$(OBJDIR_UNIX)/infra/paciente.o: infra/paciente.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/paciente.c -o $(OBJDIR_UNIX)/infra/paciente.o
+
+$(OBJDIR_UNIX)/infra/files.o: infra/files.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/files.c -o $(OBJDIR_UNIX)/infra/files.o
+
+$(OBJDIR_UNIX)/infra/comorbidades.o: infra/comorbidades.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/comorbidades.c -o $(OBJDIR_UNIX)/infra/comorbidades.o
+
+$(OBJDIR_UNIX)/infra/comorbidade-paciente.o: infra/comorbidade-paciente.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/comorbidade-paciente.c -o $(OBJDIR_UNIX)/infra/comorbidade-paciente.o
+
+$(OBJDIR_UNIX)/infra/adadpter.o: infra/adadpter.c
+	$(CC) $(CFLAGS_UNIX) $(INC_UNIX) -c infra/adadpter.c -o $(OBJDIR_UNIX)/infra/adadpter.o
+
+clean_unix: 
+	rm -f $(OBJ_UNIX) $(OUT_UNIX)
+	rm -rf bin/Release
+	rm -rf $(OBJDIR_UNIX)
+	rm -rf $(OBJDIR_UNIX)/usecases/usuario
+	rm -rf $(OBJDIR_UNIX)/usecases/paciente
+	rm -rf $(OBJDIR_UNIX)/usecases
+	rm -rf $(OBJDIR_UNIX)/usecases/comorbidade
+	rm -rf $(OBJDIR_UNIX)/repository
+	rm -rf $(OBJDIR_UNIX)/presentation
+	rm -rf $(OBJDIR_UNIX)/infra
+
+.PHONY: before_debug after_debug clean_debug before_release after_release clean_release before_unix after_unix clean_unix
 
