@@ -53,4 +53,7 @@ jobs:
         gcc.exe -Wall -g  -c infra\\comorbidade-paciente.c -o obj\\Debug\\infra\\comorbidade-paciente.o
         gcc.exe -Wall -g  -c infra\\adadpter.c -o obj\\Debug\\infra\\adadpter.o
         gcc.exe  -o bin\\Debug\\covid-unip.exe obj\\Debug\\utils.o obj\\Debug\\usecases\\usuario\\deletar.o obj\\Debug\\usecases\\usuario\\cadastrar.o obj\\Debug\\usecases\\paciente\\cadastrar.o obj\\Debug\\usecases\\login.o obj\\Debug\\usecases\\comorbidade\\deletar.o obj\\Debug\\usecases\\comorbidade\\cadastrar.o obj\\Debug\\repository\\usuario.o obj\\Debug\\repository\\pacientes-risco.o obj\\Debug\\repository\\paciente.o obj\\Debug\\repository\\comorbidade.o obj\\Debug\\repository\\comorbidade-paciente.o obj\\Debug\\presentation\\usuario.o obj\\Debug\\presentation\\read-structs.o obj\\Debug\\presentation\\principal.o obj\\Debug\\presentation\\paciente.o obj\\Debug\\presentation\\comorbidade.o obj\\Debug\\main.o obj\\Debug\\infra\\usuario.o obj\\Debug\\infra\\pacientes-risco.o obj\\Debug\\infra\\paciente.o obj\\Debug\\infra\\files.o obj\\Debug\\infra\\comorbidades.o obj\\Debug\\infra\\comorbidade-paciente.o obj\\Debug\\infra\\adadpter.o
-        
+    - name: Download a single artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: bin/Debug/covid-unip.exe
