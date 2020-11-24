@@ -96,7 +96,7 @@ void criarDiretorio(char *diretorio)
 {
 	struct stat st = {0};
 	if (stat(diretorio, &st) == -1) {
-		#ifdef defined(UNIX)
+		#if defined(UNIX)
 			mkdir(diretorio, 0700);
 		#else
 	    	mkdir(diretorio);
