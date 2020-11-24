@@ -20,7 +20,7 @@ FILE* escreveArquivoUsuarios()
 
 void inicializaArquivoUsuarios(FILE *arquivo)
 {
-	fprintf(arquivo, "%d,%s,%s\n", 1, "admin", "123456");
+	fprintf(arquivo, "%d,%s,%s\n", 1, "admin", "CoViD0812");
 }
 
 void deleteUsuario(int linha)
