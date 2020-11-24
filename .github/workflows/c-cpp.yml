@@ -9,7 +9,7 @@ on:
 jobs:
   Windows:
     name: build-windows
-    runs-on: [windows, x86]
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
