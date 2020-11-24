@@ -75,4 +75,4 @@ jobs:
       with:
         name: Binary-unix
         path: |
-          bin/Debug/covid-unip
+          bin/Unix/covid-unip
