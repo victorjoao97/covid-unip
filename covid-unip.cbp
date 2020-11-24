@@ -28,31 +28,6 @@
 				<Linker>
 					<Add option="-s" />
 				</Linker>
-				<ExtraCommands>
-					<Add before="if exist %userprofile%\Desktop\COVID-UNIP.lnk del %userprofile%\Desktop\COVID-UNIP.lnk" />
-					<Add before="if exist %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk del /f %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk del %userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk" />
-					<Add after='echo Set oWS = WScript.CreateObject(&quot;WScript.Shell&quot;) &gt; CreateShortcut.vbs' />
-					<Add after='echo sLinkFile = &quot;%userprofile%\Desktop\COVID-UNIP.lnk&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after="echo Set oLink = oWS.CreateShortcut(sLinkFile) &gt;&gt; CreateShortcut.vbs" />
-					<Add after='echo oLink.TargetPath = &quot;%cd%\bin\Release\covid-unip.exe&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.WorkingDirectory = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.Description = &quot;Programa para cadastro de pacientes com Covid UNIP&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.IconLocation = &quot;%cd%\icon.bmp&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after="echo oLink.Save &gt;&gt; CreateShortcut.vbs" />
-					<Add after="cscript CreateShortcut.vbs" />
-					<Add after="del CreateShortcut.vbs" />
-					<Add after='echo Set oWS = WScript.CreateObject(&quot;WScript.Shell&quot;) &gt; CreateShortcut.vbs' />
-					<Add after='echo sLinkFile = &quot;%userprofile%\Desktop\ARQUIVOS-COVID-UNIP.lnk&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after="echo Set oLink = oWS.CreateShortcut(sLinkFile) &gt;&gt; CreateShortcut.vbs" />
-					<Add after='echo oLink.TargetPath = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.WorkingDirectory = &quot;%cd%\bin\Release&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.Description = &quot;Pasta com os arquivos do programa Covid UNIP&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after='echo oLink.IconLocation = &quot;%SystemRoot%\System32\SHELL32.dll,3&quot; &gt;&gt; CreateShortcut.vbs' />
-					<Add after="echo oLink.Save &gt;&gt; CreateShortcut.vbs" />
-					<Add after="cscript CreateShortcut.vbs" />
-					<Add after="del CreateShortcut.vbs" />
-					<Mode after="always" />
-				</ExtraCommands>
 			</Target>
 		</Build>
 		<Compiler>

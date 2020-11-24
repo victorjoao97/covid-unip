@@ -153,7 +153,7 @@ clean_debug:
 	rm -rf $(OBJDIR_DEBUG)/presentation
 	rm -rf $(OBJDIR_DEBUG)/infra
 
-before_release:
+before_release: 
 	test -d bin/Release || mkdir -p bin/Release
 	test -d $(OBJDIR_RELEASE) || mkdir -p $(OBJDIR_RELEASE)
 	test -d $(OBJDIR_RELEASE)/usecases/usuario || mkdir -p $(OBJDIR_RELEASE)/usecases/usuario
@@ -164,7 +164,7 @@ before_release:
 	test -d $(OBJDIR_RELEASE)/presentation || mkdir -p $(OBJDIR_RELEASE)/presentation
 	test -d $(OBJDIR_RELEASE)/infra || mkdir -p $(OBJDIR_RELEASE)/infra
 
-after_release:
+after_release: 
 
 release: before_release out_release after_release
 
