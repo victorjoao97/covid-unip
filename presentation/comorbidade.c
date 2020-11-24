@@ -36,7 +36,7 @@ inicio:
 	default:
 		printf("voce deve escolher uma opcao valida\n");
 		printf("Precione qualquer tecla para voltar ao menu\n");
-		system("pause");
+		pausaParaContinuar();
 		goto inicio;
 	}
 
