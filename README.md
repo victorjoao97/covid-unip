@@ -1,5 +1,7 @@
 # Covid Unip
 
+**Projeto criado para a Unip, para cadastro de pacientes com Covid, para uso posterior dos dados de pacientes com comorbidades e do grupo de risco**
+
 ## Para instalar basta abrir o INSTALADOR.exe
 Será criado dois atalhos na área de trabalho.
 ## Usuário e senha padrão
