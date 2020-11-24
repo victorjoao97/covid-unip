@@ -47,9 +47,9 @@ RCFLAGS_UNIX = $(RCFLAGS)
 LIBDIR_UNIX = $(LIBDIR)
 LIB_UNIX = $(LIB)
 LDFLAGS_UNIX = $(LDFLAGS) -s -lncurses
-OBJDIR_UNIX = obj/Release
+OBJDIR_UNIX = obj/Unix
 DEP_UNIX = 
-OUT_UNIX = bin/Release/covid-unip
+OUT_UNIX = bin/Unix/covid-unip
 
 OBJ_DEBUG = $(OBJDIR_DEBUG)/utils.o $(OBJDIR_DEBUG)/usecases/usuario/deletar.o $(OBJDIR_DEBUG)/usecases/usuario/cadastrar.o $(OBJDIR_DEBUG)/usecases/paciente/cadastrar.o $(OBJDIR_DEBUG)/usecases/login.o $(OBJDIR_DEBUG)/usecases/comorbidade/deletar.o $(OBJDIR_DEBUG)/usecases/comorbidade/cadastrar.o $(OBJDIR_DEBUG)/repository/usuario.o $(OBJDIR_DEBUG)/repository/pacientes-risco.o $(OBJDIR_DEBUG)/repository/paciente.o $(OBJDIR_DEBUG)/repository/comorbidade.o $(OBJDIR_DEBUG)/repository/comorbidade-paciente.o $(OBJDIR_DEBUG)/presentation/usuario.o $(OBJDIR_DEBUG)/presentation/read-structs.o $(OBJDIR_DEBUG)/presentation/principal.o $(OBJDIR_DEBUG)/presentation/paciente.o $(OBJDIR_DEBUG)/presentation/comorbidade.o $(OBJDIR_DEBUG)/main.o $(OBJDIR_DEBUG)/infra/usuario.o $(OBJDIR_DEBUG)/infra/pacientes-risco.o $(OBJDIR_DEBUG)/infra/paciente.o $(OBJDIR_DEBUG)/infra/files.o $(OBJDIR_DEBUG)/infra/comorbidades.o $(OBJDIR_DEBUG)/infra/comorbidade-paciente.o $(OBJDIR_DEBUG)/infra/adadpter.o
 
@@ -272,7 +272,7 @@ clean_release:
 	rm -rf $(OBJDIR_RELEASE)/infra
 
 before_unix: 
-	test -d bin/Release || mkdir -p bin/Release
+	test -d bin/Unix || mkdir -p bin/Unix
 	test -d $(OBJDIR_UNIX) || mkdir -p $(OBJDIR_UNIX)
 	test -d $(OBJDIR_UNIX)/usecases/usuario || mkdir -p $(OBJDIR_UNIX)/usecases/usuario
 	test -d $(OBJDIR_UNIX)/usecases/paciente || mkdir -p $(OBJDIR_UNIX)/usecases/paciente
@@ -366,7 +366,7 @@ $(OBJDIR_UNIX)/infra/adadpter.o: infra/adadpter.c
 
 clean_unix: 
 	rm -f $(OBJ_UNIX) $(OUT_UNIX)
-	rm -rf bin/Release
+	rm -rf bin/Unix
 	rm -rf $(OBJDIR_UNIX)
 	rm -rf $(OBJDIR_UNIX)/usecases/usuario
 	rm -rf $(OBJDIR_UNIX)/usecases/paciente
