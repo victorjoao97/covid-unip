@@ -1,4 +1,4 @@
-# Covid Unip
+# Covid Unip ![C/C++ CI](https://github.com/victorjoao97/covid-unip/workflows/C/C++%20CI/badge.svg)
 
 **Projeto criado para a Unip, para cadastro de pacientes com Covid, para uso posterior dos dados de pacientes com comorbidades e do grupo de risco**
 
