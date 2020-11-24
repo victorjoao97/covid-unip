@@ -9,7 +9,7 @@ on:
 jobs:
   Windows:
     name: build-windows
-    runs-on: [self-hosted, windows]
+    runs-on: [windows, x86]
 
     steps:
     - uses: actions/checkout@v2
