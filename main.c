@@ -1,7 +1,7 @@
 #include <locale.h>
 
 #include "header.h"
-
+// TESTE
 int totalUsuarios = 0;
 int totalPacientes = 0;
 int totalComorbidades = 0;
